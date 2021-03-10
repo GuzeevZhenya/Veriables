@@ -14,14 +14,30 @@ function handleUpdate() {
 
 
 
-function darkOrLight() {
-    body.classList.toggle('night');
-    if (body.classList.contains('night')) {
-        changeButton.style.background = "url('sun.png') no-repeat 15px 15px";
-    } else {
-        changeButton.style.background = "url('moon.png') no-repeat 50px 12px";
-    }
+// function darkOrLight() {
+//     body.classList.toggle('night');
+//     if (body.classList.contains('night')) {
+//         changeButton.style.background = "url('sun.png') no-repeat 15px 15px";
+//     } else {
+//         changeButton.style.background = "url('moon.png') no-repeat 50px 12px";
+//     }
 
+// }
+
+
+function darkOrLight(themeName){
+    localStorage.setItem('theme',themeName);
+    document.documentElement.className = themeName;
 }
 
-changeButton.addEventListener('click', darkOrLight)
+function toggleTheme(){
+    if(localStorage.getItem('theme')==='dark-theme'){
+        darkOrLight('light-theme')
+    }else{
+        darkOrLight('dark-theme')
+    }
+}
+changeButton.addEventListener('click', function(e){
+    e.preventDefault();
+    toggleTheme();
+});

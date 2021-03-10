@@ -20,8 +20,9 @@ img {
 }
 
 body {
-    background-color: var(whiteBackground);
-    color: var(--black);
+    /* background-color: var(whiteBackground);
+    color: var(--black); */
+    background-color: var(--main-color);
     font-weight: 100;
     font-size: 50px;
     text-align: center;
@@ -79,4 +80,17 @@ input[type='checkbox']:before {
 
 input:checked[type="checkbox"]::before {
     left: 40px;
+}
+
+
+
+
+.light-theme {
+    --main-color: #e5e5e5;
+    --second-color: #272727;
+}
+
+.dark-theme {
+    --main-color: #272727;
+    --second-color: #272727;
 }
