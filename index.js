@@ -22,22 +22,19 @@ function handleUpdate() {
 
 
 function darkOrLight() {
-    body.style.setProperty('background-color', darkTheme);
-    for (let i = 0; i < label.length; i++) {
-        label[i].style.setProperty('color', lightTheme)
+
+    if (body.style.backgroundColor === 'rgb(3, 43, 67)') {
+        body.style.setProperty('background-color', lightTheme);
+        for (let i = 0; i < label.length; i++) {
+            label[i].style.setProperty('color', darkTheme)
+        }
+    } else {
+        body.style.setProperty('background-color', darkTheme);
+        for (let i = 0; i < label.length; i++) {
+            label[i].style.setProperty('color', lightTheme)
+        }
     }
+    console.log(body.style.backgroundColor)
 }
 
-
-
-// function darkOrLight() {
-//     body.classList.toggle('night');
-//     if (body.classList.contains('night')) {
-//         changeButton.style.background = "url('sun.png') no-repeat 15px 15px";
-//     } else {
-//         changeButton.style.background = "url('moon.png') no-repeat 50px 12px";
-//     }
-// }
-
-
-changeButton.addEventListener('click', darkOrLight)
+changeButton.addEventListener('click', darkOrLight);
