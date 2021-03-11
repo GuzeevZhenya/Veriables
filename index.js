@@ -2,6 +2,7 @@ const inputs = document.querySelectorAll('.controls input');
 const changeButton = document.querySelector('.change-button');
 const body = document.querySelector('body');
 const label = document.querySelectorAll('label');
+const standartBody = 'rgb(3, 43, 67)';
 
 let color = getComputedStyle(document.body);
 
@@ -15,7 +16,6 @@ inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
 
 function handleUpdate() {
     const suffix = this.dataset.sizing || '';
-    //console.log(this.name);
     document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
 }
 
@@ -23,18 +23,16 @@ function handleUpdate() {
 
 function darkOrLight() {
 
-    if (body.style.backgroundColor === 'rgb(3, 43, 67)') {
+    if (body.style.backgroundColor === standartBody) {
         body.style.setProperty('background-color', lightTheme);
-        for (let i = 0; i < label.length; i++) {
-            label[i].style.setProperty('color', darkTheme)
-        }
+        body.style.setProperty('color', darkTheme);
+        changeButton.style.background = "url('moon.png') no-repeat 50px 12px";
+
     } else {
         body.style.setProperty('background-color', darkTheme);
-        for (let i = 0; i < label.length; i++) {
-            label[i].style.setProperty('color', lightTheme)
-        }
+        body.style.setProperty('color', lightTheme);
+        changeButton.style.background = "url('sun.png') no-repeat 15px 15px";
     }
-    console.log(body.style.backgroundColor)
 }
 
 changeButton.addEventListener('click', darkOrLight);
