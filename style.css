@@ -20,7 +20,7 @@ img {
 }
 
 body {
-    background-color: var(whiteBackground);
+    background-color: var(--whiteBackground);
     color: var(--black);
     font-weight: 100;
     font-size: 50px;
